@@ -1,5 +1,15 @@
 import React, { useState, useRef } from "react";
-import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 import Header from "../Home/Header";
 import emailjs from "@emailjs/browser";
 
@@ -7,6 +17,8 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [open, setOpen] = useState(false);
 
   const form = useRef();
 
@@ -23,11 +35,20 @@ const ContactForm = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setSuccessMessage("We will respond to you as soon as possible");
+          setOpen(true);
+          setName("");
+          setEmail("");
+          setMessage("");
         },
         (error) => {
           console.log(error.text);
         }
       );
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -86,6 +107,23 @@ const ContactForm = () => {
           </Box>
         </form>
       </Box>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        <DialogTitle sx={{ textAlign: "justify" }}>
+          Message sent successfully!
+        </DialogTitle>
+        <DialogContent>
+          <Typography>{successMessage}</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} variant="contained" color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 };
