@@ -1,6 +1,6 @@
-import React from "react";
-import { Typography, Box, Button } from "@mui/material";
-import Guindilla from "../../../src/Guindilla.png";
+import React from 'react'
+import { Button } from '@mui/material'
+import guindillaLogotipo from '../../../src/assets/guindillaLogotipo.svg'
 
 const LogoWithName = () => {
   return (
@@ -8,27 +8,17 @@ const LogoWithName = () => {
       component="a"
       href="/"
       style={{
-        display: "flex",
-        alignItems: "center",
-        border: "2px solid black",
-        borderRadius: "20px",
-        padding: "5px 20px",
-        textTransform: "none",
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
       <img
-        src={Guindilla}
+        src={guindillaLogotipo}
         alt="Logo"
-        style={{ height: "40px", marginRight: "10px", cursor: "pointer" }}
+        style={{ height: '40px', width: '79px', cursor: 'pointer' }}
       />
-      <Typography
-        variant="h6"
-        style={{ textTransform: "none", color: "black" }}
-      >
-        La Guindilla
-      </Typography>
     </Button>
-  );
-};
+  )
+}
 
-export default LogoWithName;
+export default LogoWithName

@@ -6,14 +6,14 @@ import Lisen from "./components/Lisen/Lisen";
 
 function App() {
   return (
-    <Container>
+   
       <Router>
         <Routes>
           <Route path="/lisen" element={<Lisen />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
-    </Container>
+   
   );
 }
 export default App;

@@ -1,19 +1,20 @@
 import React from "react";
 import { Container } from "@mui/material";
 import Header from "../Header";
-import SeccionOne from "../SeccionOne";
+import SeccionOne from "../sections/SeccionOne";
 import CarrouselSeccion from "../CarrouselSeccion";
-import SeccionThree from "../SeccionThree";
-import WeAre from "../WeAre";
+import SeccionTwo from "../sections/SeccionTwo";
+import Footer from "../Footer";
+
 
 const Home = () => {
   return (
     <Container>
       <Header />
       <SeccionOne />
-      <WeAre />
+      <SeccionTwo />
       <CarrouselSeccion />
-      <SeccionThree />
+      <Footer /> 
     </Container>
   );
 };
