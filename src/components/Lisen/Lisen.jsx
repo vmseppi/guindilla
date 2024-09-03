@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react'
 import {
   TextField,
   Button,
@@ -9,52 +9,52 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-} from "@mui/material";
-import Header from "../Home/Header";
-import emailjs from "@emailjs/browser";
+} from '@mui/material'
+import Header from '../Home/Header'
+import emailjs from '@emailjs/browser'
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [open, setOpen] = useState(false);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+  const [open, setOpen] = useState(false)
 
-  const form = useRef();
+  const form = useRef()
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     emailjs
       .sendForm(
-        "service_82o2yvo",
-        "template_411o71j",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         form.current,
-        "bPvpEdQMcvlpMRrjG"
+        process.env.process.env.REACT_APP_EMAILJS_USER_ID,
       )
       .then(
         (result) => {
-          console.log(result.text);
-          setSuccessMessage("We will respond to you as soon as possible");
-          setOpen(true);
-          setName("");
-          setEmail("");
-          setMessage("");
+          console.log(result.text)
+          setSuccessMessage('We will respond to you as soon as possible')
+          setOpen(true)
+          setName('')
+          setEmail('')
+          setMessage('')
         },
         (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+          console.log(error.text)
+        },
+      )
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <Container>
       <Header />
-      <Box sx={{ marginTop: { xs: "50px", md: "100px" } }}>
+      <Box sx={{ marginTop: { xs: '50px', md: '100px' } }}>
         <Typography variant="h4" align="center" gutterBottom>
           Contact Us
         </Typography>
@@ -91,12 +91,12 @@ const ContactForm = () => {
           />
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
             }}
           >
-            <a href="/" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: 'none' }}>
               <Button variant="contained" color="primary">
                 Back
               </Button>
@@ -110,9 +110,9 @@ const ContactForm = () => {
       <Dialog
         open={open}
         onClose={handleClose}
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
-        <DialogTitle sx={{ textAlign: "justify" }}>
+        <DialogTitle sx={{ textAlign: 'justify' }}>
           Message sent successfully!
         </DialogTitle>
         <DialogContent>
@@ -125,7 +125,7 @@ const ContactForm = () => {
         </DialogActions>
       </Dialog>
     </Container>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

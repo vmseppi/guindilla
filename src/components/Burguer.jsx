@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { SvgIcon, Drawer, List, ListItem, Box, Link } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
 import { useNavigate } from 'react-router-dom'
 
 const Burger = () => {
@@ -22,7 +21,14 @@ const Burger = () => {
   }
 
   return (
-    <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <Box
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        width: '100%',
+        zIndex: 1300,
+      }}
+    >
       <SvgIcon
         edge="start"
         color="inherit"
@@ -49,19 +55,32 @@ const Burger = () => {
           </defs>
         </svg>
       </SvgIcon>
-      <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
+      <Drawer
+        anchor="top"
+        open={isDrawerOpen}
+        onClose={toggleDrawer}
+        variant="persistent"
+        PaperProps={{
+          style: {
+            position: 'absolute',
+            top: '91px',
+            height: '120px',
+            backgroundColor: '#ED4F67',
+          },
+        }}
+      >
         <List>
           <ListItem>
             <Link
               primary="Home"
               onClick={redirectToHome}
               sx={{
-                color: 'black',
+                color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
               }}
             >
-              La Guindilla
+              Inicio
             </Link>
           </ListItem>
           <ListItem>
@@ -69,12 +88,12 @@ const Burger = () => {
               primary="Lisen"
               onClick={redirectToLisen}
               sx={{
-                color: 'black',
+                color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
               }}
             >
-              Te escuchamos
+              Contacto
             </Link>
           </ListItem>
         </List>
