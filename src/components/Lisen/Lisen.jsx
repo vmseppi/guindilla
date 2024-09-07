@@ -7,7 +7,6 @@ import {
   Box,
   Dialog,
   DialogTitle,
-  DialogContent,
   DialogActions,
 } from '@mui/material'
 import Header from '../Home/Header'
@@ -17,25 +16,29 @@ const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [successMessage, setSuccessMessage] = useState('')
   const [open, setOpen] = useState(false)
 
   const form = useRef()
+
+  console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID)
+  console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID)
+  console.log('User ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
+
+  
 
   const sendEmail = (e) => {
     e.preventDefault()
 
     emailjs
       .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         form.current,
-        process.env.process.env.REACT_APP_EMAILJS_USER_ID,
+        'bPvpEdQMcvlpMRrjG',
       )
       .then(
         (result) => {
           console.log(result.text)
-          setSuccessMessage('We will respond to you as soon as possible')
           setOpen(true)
           setName('')
           setEmail('')
@@ -71,7 +74,7 @@ const ContactForm = () => {
           <TextField
             fullWidth
             label="Your Email"
-            name="from_name"
+            name="from_email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -115,9 +118,6 @@ const ContactForm = () => {
         <DialogTitle sx={{ textAlign: 'justify' }}>
           Message sent successfully!
         </DialogTitle>
-        <DialogContent>
-          <Typography>{successMessage}</Typography>
-        </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} variant="contained" color="primary">
             Close
