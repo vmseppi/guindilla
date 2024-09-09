@@ -12,14 +12,14 @@ export default async function handler(req, res) {
 
     try {
       const result = await emailjs.send(
-        process.env.EMAILJS_SERVICE_ID,
-        process.env.EMAILJS_TEMPLATE_ID,
+        process.env.SERVICE_ID,
+        process.env.TEMPLATE_ID,
         {
           from_name: name,
           from_email: email,
           message: message,
         },
-        process.env.EMAILJS_USER_ID,
+        process.env.USER_ID,
       )
 
       return res
