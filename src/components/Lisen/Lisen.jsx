@@ -11,7 +11,6 @@ import {
 } from '@mui/material'
 import Header from '../Home/Header'
 
-
 const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -28,7 +27,7 @@ const ContactForm = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/sendEmail', {
+      const response = await fetch('/api/fetchData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
