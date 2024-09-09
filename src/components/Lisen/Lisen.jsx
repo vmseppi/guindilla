@@ -10,6 +10,7 @@ import {
   DialogActions,
 } from '@mui/material'
 import Header from '../Home/Header'
+import emailjs from '@emailjs/browser'
 
 const ContactForm = () => {
   const [name, setName] = useState('')
@@ -19,36 +20,32 @@ const ContactForm = () => {
 
   const form = useRef()
 
-  console.log('Service ID:', process.env.SERVICE_ID)
-  console.log('Template ID:', process.env.TEMPLATE_ID)
-  console.log('User ID:', process.env.USER_ID)
+  console.log('Service ID:', process.env.REACT_APPSERVICE_ID)
+  console.log('Template ID:', process.env.REACT_APP_TEMPLATE_ID)
+  console.log('User ID:', process.env.REACT_APP_USER_ID)
 
-  const sendEmail = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault()
 
-    try {
-      const response = await fetch('/api/fetchData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        'bPvpEdQMcvlpMRrjG',
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+          setOpen(true)
+          setName('')
+          setEmail('')
+          setMessage('')
         },
-        body: JSON.stringify({ name, email, message }),
-      })
-
-      const result = await response.json()
-
-      if (result.success) {
-        console.log('Email sent successfully!')
-        setOpen(true)
-        setName('')
-        setEmail('')
-        setMessage('')
-      } else {
-        console.log('Error sending email:', result.error)
-      }
-    } catch (error) {
-      console.log('Error:', error)
-    }
+        (error) => {
+          console.log(error.text)
+        },
+      )
   }
 
   const handleClose = () => {
