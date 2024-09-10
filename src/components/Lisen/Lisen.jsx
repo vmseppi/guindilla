@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import {
   TextField,
   Button,
@@ -10,46 +10,48 @@ import {
   DialogActions,
 } from '@mui/material'
 import Header from '../Home/Header'
-import emailjs from '@emailjs/browser'
 
 const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [open, setOpen] = useState(false)
+  const [error, setError] = useState(false)
 
-  const form = useRef()
-
-  console.log('Service ID:', process.env.REACT_APPSERVICE_ID)
-  console.log('Template ID:', process.env.REACT_APP_TEMPLATE_ID)
-  console.log('User ID:', process.env.REACT_APP_USER_ID)
-
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault()
 
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        form.current,
-        'bPvpEdQMcvlpMRrjG',
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-          setOpen(true)
-          setName('')
-          setEmail('')
-          setMessage('')
+    try {
+      const response = await fetch('http://localhost:3001/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        (error) => {
-          console.log(error.text)
-        },
-      )
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      })
+
+      if (response.ok) {
+        setOpen(true) // Mostrar mensaje de éxito
+        setName('')
+        setEmail('')
+        setMessage('')
+      } else {
+        setError(true) // Mostrar mensaje de error si la respuesta no es 200 OK
+        console.error('Error al enviar el correo')
+      }
+    } catch (error) {
+      setError(true) // Mostrar mensaje de error en caso de una excepción
+      console.error('Error en la solicitud:', error)
+    }
   }
 
   const handleClose = () => {
     setOpen(false)
+    setError(false)
   }
 
   return (
@@ -59,7 +61,7 @@ const ContactForm = () => {
         <Typography variant="h4" align="center" gutterBottom>
           Contact Us
         </Typography>
-        <form onSubmit={sendEmail} ref={form}>
+        <form onSubmit={sendEmail}>
           <TextField
             fullWidth
             label="Your Name"
@@ -109,12 +111,12 @@ const ContactForm = () => {
         </form>
       </Box>
       <Dialog
-        open={open}
+        open={open || error}
         onClose={handleClose}
         sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
         <DialogTitle sx={{ textAlign: 'justify' }}>
-          Message sent successfully!
+          {error ? 'Error sending message!' : 'Message sent successfully!'}
         </DialogTitle>
         <DialogActions>
           <Button onClick={handleClose} variant="contained" color="primary">
