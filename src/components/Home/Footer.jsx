@@ -32,7 +32,6 @@ const Footer = () => {
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          height: '100%',
           width: '100%',
         }}
       >
@@ -107,7 +106,7 @@ const Footer = () => {
                 <img
                   src={youtubeIcon}
                   alt="youtubeIcon"
-                  style={{ width: '12px', height: '12px', marginRight: '6px' }}
+                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
                 />
               </a>
               <a
@@ -118,7 +117,7 @@ const Footer = () => {
                 <img
                   src={linkedinIcon}
                   alt="linkedinIcon"
-                  style={{ width: '12px', height: '12px', marginRight: '6px' }}
+                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
                 />
               </a>
               <a
@@ -129,7 +128,7 @@ const Footer = () => {
                 <img
                   src={instagramIcon}
                   alt="instagramIcon"
-                  style={{ width: '12px', height: '12px', marginRight: '6px' }}
+                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
                 />
               </a>
             </Box>

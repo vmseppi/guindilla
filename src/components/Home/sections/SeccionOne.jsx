@@ -12,18 +12,18 @@ const SeccionOne = () => {
         justifyContent: 'center',
         backgroundColor: '#E40613',
         height: '100px',
-        padding: '10px 0',
+        padding: '0px 16px',
       }}
     >
       <Typography
         variant="h1"
-        sx={{ color: 'white', fontSize: '42px', fontWeight: 'bold', margin:"0" }}
+        sx={{ color: 'white', fontSize: '42px', fontWeight: 'bold' }}
       >
         Te escuchamos.
       </Typography>
       <Typography
         variant="h2"
-        sx={{ color: 'white', fontSize: '12px', fontWeight: 'light', margin:"0" }}
+        sx={{ color: 'white', fontSize: '12px', fontWeight: 'light' }}
       >
         Diseño grafico/Web. Motion graphics. Produccion de video.
       </Typography>

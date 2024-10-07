@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {
   TextField,
   Button,
-  Container,
   Typography,
   Box,
   Dialog,
@@ -10,6 +9,7 @@ import {
   DialogActions,
 } from '@mui/material'
 import Header from '../Home/Header'
+import Footer from '../Home/Footer'
 
 const ContactForm = () => {
   const [name, setName] = useState('')
@@ -35,16 +35,16 @@ const ContactForm = () => {
       })
 
       if (response.ok) {
-        setOpen(true) // Mostrar mensaje de éxito
+        setOpen(true)
         setName('')
         setEmail('')
         setMessage('')
       } else {
-        setError(true) // Mostrar mensaje de error si la respuesta no es 200 OK
+        setError(true)
         console.error('Error al enviar el correo')
       }
     } catch (error) {
-      setError(true) // Mostrar mensaje de error en caso de una excepción
+      setError(true)
       console.error('Error en la solicitud:', error)
     }
   }
@@ -55,61 +55,142 @@ const ContactForm = () => {
   }
 
   return (
-    <Container>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '1047px',
+      }}
+    >
       <Header />
-      <Box sx={{ marginTop: { xs: '50px', md: '100px' } }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Contact Us
-        </Typography>
-        <form onSubmit={sendEmail}>
-          <TextField
-            fullWidth
-            label="Your Name"
-            name="from_name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Your Email"
-            name="from_email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Your Message"
-            name="message"
-            multiline
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            margin="normal"
-            required
-          />
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
+      <Box sx={{ height: '108px', backgroundColor: '#E40613' }}></Box>
+      <Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '92px',
+            justifyContent: 'space-between',
+            marginTop: '36px',
+            padding: '16px',
+          }}
+        >
+          <Typography
+            variant="title"
+            sx={{ fontSize: '23px', fontWeight: 'bold' }}
           >
-            <a href="/" style={{ textDecoration: 'none' }}>
-              <Button variant="contained" color="primary">
-                Back
+            Te escuchamos.
+          </Typography>
+          <br />
+          <Typography
+            variant="subtitle"
+            sx={{ fontSize: '14px', marginBottom: '36px' }}
+          >
+            Cuéntanos tu proyecto y nos pondremos en contacto contigo para
+            hacerlo llevarlo a cabo.
+          </Typography>
+          <Box>
+            <form onSubmit={sendEmail}>
+              <TextField
+                fullWidth
+                label="Nombre"
+                name="from_name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                margin="normal"
+                required
+                variant="outlined"
+                InputProps={{
+                  style: {
+                    borderWidth: '1px',
+                    borderColor: 'black',
+                    borderStyle: 'solid',
+                    borderRadius: '0px',
+                  },
+                }}
+                InputLabelProps={{
+                  style: {
+                    color: 'black',
+                  },
+                }}
+              />
+              <TextField
+                fullWidth
+                label="Email"
+                name="from_email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                margin="normal"
+                required
+                variant="outlined"
+                InputProps={{
+                  style: {
+                    borderWidth: '1px',
+                    borderColor: 'black',
+                    borderStyle: 'solid',
+                    borderRadius: '0px',
+                  },
+                }}
+                InputLabelProps={{
+                  style: {
+                    color: 'black',
+                  },
+                }}
+              />
+              <TextField
+                fullWidth
+                label="Mensaje"
+                name="message"
+                multiline
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                margin="normal"
+                required
+                variant="outlined"
+                InputProps={{
+                  style: {
+                    borderWidth: '1px',
+                    borderColor: 'black',
+                    borderStyle: 'solid',
+                    borderRadius: '0px',
+                  },
+                }}
+                InputLabelProps={{
+                  style: {
+                    color: 'black',
+                  },
+                }}
+              />
+
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: '#ED4F67',
+                  color: 'white',
+                  borderRadius: '0px',
+                  padding: '10px',
+                  width: '100%',
+                  marginTop: '28px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  '&:hover': {
+                    backgroundColor: 'darkred',
+                  },
+                }}
+              >
+                ENVIAR
               </Button>
-            </a>
-            <Button type="submit" variant="contained" color="error">
-              Submit
-            </Button>
+            </form>
           </Box>
-        </form>
+        </Box>
       </Box>
+      <Box sx={{ position: 'relative', marginTop: 'auto' }}>
+        <Footer />
+      </Box>
+
       <Dialog
         open={open || error}
         onClose={handleClose}
@@ -124,7 +205,7 @@ const ContactForm = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </Container>
+    </Box>
   )
 }
 

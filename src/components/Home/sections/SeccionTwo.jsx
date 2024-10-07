@@ -18,12 +18,13 @@ const SeccionTwo = () => {
         paddingRight: '16px',
         borderBottom: '4px solid red',
         marginBottom: '20px',
+        boxSizing: 'border-box',
       }}
     >
       <img
         src={guindillaLogotipo}
         alt="logotipo"
-        style={{ height: '114px', width: '204px', marginLeft: '11px' }}
+        style={{ height: '114px', width: '204px', marginBottom: '28px' }}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box

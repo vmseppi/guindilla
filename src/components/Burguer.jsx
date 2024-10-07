@@ -20,6 +20,11 @@ const Burger = () => {
     toggleDrawer()
   }
 
+  const redirectToProyect = () => {
+    navigate('/proyect')
+    toggleDrawer()
+  }
+
   return (
     <Box
       style={{
@@ -66,6 +71,8 @@ const Burger = () => {
             top: '91px',
             height: '120px',
             backgroundColor: '#ED4F67',
+            padding:"10px 16px",
+            boxSizing:"content-box"
           },
         }}
       >
@@ -81,6 +88,19 @@ const Burger = () => {
               }}
             >
               Inicio
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              primary="Lisen"
+              onClick={redirectToProyect}
+              sx={{
+                color: 'white',
+                fontWeight: 'bold',
+                textDecoration: 'none',
+              }}
+            >
+              Proyectos
             </Link>
           </ListItem>
           <ListItem>
