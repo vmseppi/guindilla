@@ -11,19 +11,28 @@ const SeccionOne = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E40613',
-        height: '100px',
+        height: { xs: '100px', lg: '431px' },
         padding: '0px 16px',
       }}
     >
       <Typography
         variant="h1"
-        sx={{ color: 'white', fontSize: '42px', fontWeight: 'bold' }}
+        sx={{
+          color: 'white',
+          fontSize: { xs: '42px',lg:"148px" },
+          fontWeight: 'bold',
+        }}
       >
         Te escuchamos.
       </Typography>
       <Typography
         variant="h2"
-        sx={{ color: 'white', fontSize: '12px', fontWeight: 'light' }}
+        sx={{
+          color: 'white',
+          fontSize: { xs: '12px', lg: '42px' },
+          fontWeight: 'light',
+          fontFamily: 'Roboto',
+        }}
       >
         Diseño grafico/Web. Motion graphics. Produccion de video.
       </Typography>

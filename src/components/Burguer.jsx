@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { SvgIcon, Drawer, List, ListItem, Box, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const Burger = () => {
+  
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const navigate = useNavigate()
 
@@ -71,8 +75,8 @@ const Burger = () => {
             top: '91px',
             height: '120px',
             backgroundColor: '#ED4F67',
-            padding:"10px 16px",
-            boxSizing:"content-box"
+            padding: '10px 16px',
+            boxSizing: 'content-box',
           },
         }}
       >
@@ -85,6 +89,7 @@ const Burger = () => {
                 color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
+                cursor: 'pointer',
               }}
             >
               Inicio
@@ -98,6 +103,7 @@ const Burger = () => {
                 color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
+                cursor: 'pointer',
               }}
             >
               Proyectos
@@ -111,6 +117,7 @@ const Burger = () => {
                 color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
+                cursor: 'pointer',
               }}
             >
               Contacto
