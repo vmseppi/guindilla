@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import guindillaLogotipo from '../../../src/assets/guindillaLogotipo.svg'
+import guindillaLogotipo from '../../../src/assets/guindillaLogotipo.png'
 import logoDesktop from '../../../src/assets/logoDesktop.svg'
 
 const LogoWithName = () => {

@@ -6,16 +6,25 @@ import emailIcon from '../../assets/emailIcon.svg'
 import youtubeIcon from '../../assets/youtubeIcon.svg'
 import linkedinIcon from '../../assets/linkedinIcon.svg'
 import instagramIcon from '../../assets/instagramIcon.svg'
+import maps from '../../assets/maps.svg'
 
 const Footer = () => {
   return (
-    <Box sx={{ padding: '16px', backgroundColor: '#E40613' }}>
+    <Box
+      sx={{
+        padding: '16px',
+        backgroundColor: '#E40613',
+       
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '36px',
+           boxSizing: 'border-box',
+        maxHeight:"291px"
         }}
       >
         <Box
@@ -23,9 +32,19 @@ const Footer = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            width: { xs: '63px', lg: '94px' },
+            height: { xs: '116px', lg: '174px' },
           }}
         >
-          <img src={footerIcon} alt="footerIcon" />
+          <img
+            src={footerIcon}
+            alt="footerIcon"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
         </Box>
       </Box>
       <Box
@@ -52,7 +71,11 @@ const Footer = () => {
             />
             <Typography
               variant="title"
-              sx={{ fontSize: '10px', fontWeight: 'regular', color: 'white' }}
+              sx={{
+                fontSize: { xs: '10px', lg: '15px' },
+                fontWeight: 'regular',
+                color: 'white',
+              }}
             >
               +34 601 73 66 13
             </Typography>
@@ -65,9 +88,42 @@ const Footer = () => {
             />
             <Typography
               variant="title"
-              sx={{ fontSize: '10px', fontWeight: 'regular', color: 'white' }}
+              sx={{
+                fontSize: { xs: '10px', lg: '15px' },
+                fontWeight: 'regular',
+                color: 'white',
+              }}
             >
               infolaguindilla@gmail.com
+            </Typography>
+          </Box>
+          <Box>
+            <img
+              src={maps}
+              alt="maps"
+              style={{ width: '12px', height: '12px', marginRight: '6px' }}
+            />
+            <Typography
+              variant="title"
+              sx={{
+                fontSize: { xs: '10px', lg: '15px' },
+                fontWeight: 'regular',
+                color: 'white',
+              }}
+            >
+              Chancela 18, Negreira A Coruña,
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="title"
+              sx={{
+                fontSize: { xs: '10px', lg: '15px' },
+                fontWeight: 'regular',
+                color: 'white',
+              }}
+            >
+              ES 15839
             </Typography>
           </Box>
         </Box>
@@ -90,14 +146,20 @@ const Footer = () => {
               sx={{
                 alignContent: 'end',
                 marginRight: '5px',
-                fontSize: '10px',
+                fontSize: { xs: '10px', lg: '15px' },
                 fontWeight: 'regular',
                 color: 'white',
               }}
             >
               Siguenos en:
             </Typography>
-            <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
+            >
               <a
                 href="https://www.youtube.com/@LaGuindilla-sf4hj"
                 target="_blank"
@@ -106,7 +168,11 @@ const Footer = () => {
                 <img
                   src={youtubeIcon}
                   alt="youtubeIcon"
-                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
+                  style={{
+                    width: { xs: '24px', lg: '30px' },
+                    height: { xs: '24px', lg: '21px' },
+                    marginRight: '6px',
+                  }}
                 />
               </a>
               <a
@@ -117,7 +183,11 @@ const Footer = () => {
                 <img
                   src={linkedinIcon}
                   alt="linkedinIcon"
-                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
+                  style={{
+                    width: { xs: '24px', lg: '30px' },
+                    height: { xs: '24px', lg: '21px' },
+                    marginRight: '6px',
+                  }}
                 />
               </a>
               <a
@@ -128,7 +198,11 @@ const Footer = () => {
                 <img
                   src={instagramIcon}
                   alt="instagramIcon"
-                  style={{ width: '24px', height: '24px', marginRight: '6px' }}
+                  style={{
+                    width: { xs: '24px', lg: '30px' },
+                    height: { xs: '24px', lg: '21px' },
+                    marginRight: '6px',
+                  }}
                 />
               </a>
             </Box>

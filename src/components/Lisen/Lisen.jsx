@@ -59,20 +59,22 @@ const ContactForm = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        height: '1047px',
       }}
     >
       <Header />
       <Box sx={{ height: '108px', backgroundColor: '#E40613' }}></Box>
-      <Box>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            height: '92px',
             justifyContent: 'space-between',
             marginTop: '36px',
             padding: '16px',
+            paddingBottom: '92px',
+            maxWidth: { xs: '375px', md: '847px' },
           }}
         >
           <Typography
@@ -174,8 +176,10 @@ const ContactForm = () => {
                   padding: '10px',
                   width: '100%',
                   marginTop: '28px',
+                  fontSize: { xs: '14px', md: '39px' },
                   display: 'flex',
                   alignItems: 'center',
+                  fontFamily: 'Roboto',
                   '&:hover': {
                     backgroundColor: 'darkred',
                   },

@@ -12,7 +12,6 @@ const SeccionOne = () => {
         justifyContent: 'center',
         backgroundColor: '#E40613',
         height: { xs: '100px', lg: '431px' },
-        padding: '0px 16px',
       }}
     >
       <Typography

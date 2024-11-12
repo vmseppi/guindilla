@@ -17,7 +17,7 @@ const DesktopNavbar = () => {
   }
 
   const redirectToProyect = () => {
-    navigate('/proyect')
+    navigate('/project')
     setOpen(false)
   }
 
@@ -48,7 +48,7 @@ const DesktopNavbar = () => {
           height: '100%',
           display: 'flex',
           alignItems: 'center',
-          transition: 'transform 0.s ease-in-out',
+          transition: 'transform 0.5s ease-in-out',
           transform: open ? 'translateX(0)' : 'translateX(200%)',
           padding: '0 16px',
           zIndex: 10,
