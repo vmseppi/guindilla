@@ -22,7 +22,7 @@ const ContactForm = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch('http://localhost:3001/send-email', {
+      const response = await fetch('https://guindilla.vercel.app/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,8 @@ const ContactForm = () => {
           email,
           message,
         }),
-      })
+      });
+      
 
       if (response.ok) {
         setOpen(true)
