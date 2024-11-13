@@ -1,9 +1,7 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
-  "routes": [
-    { "src": "/check-env", "dest": "backend/server.js" },
-    { "src": "/send-email", "dest": "backend/server.js" }
+    { "source": "/check-env", "destination": "backend/server.js" },
+    { "source": "/send-email", "destination": "backend/server.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
