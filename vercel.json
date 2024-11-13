@@ -1,9 +1,9 @@
 {
-  "builds": [
-    { "src": "backend/server.js", "use": "@vercel/node" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
   ],
   "routes": [
-    { "src": "/send-email", "dest": "backend/server.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/check-env", "dest": "backend/server.js" },
+    { "src": "/send-email", "dest": "backend/server.js" }
   ]
 }
