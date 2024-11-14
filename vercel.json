@@ -1,7 +1,6 @@
 {
   "rewrites": [
-    { "source": "/check-env", "destination": "backend/server.js" },
-    { "source": "/send-email", "destination": "backend/server.js" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

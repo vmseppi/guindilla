@@ -22,7 +22,7 @@ const ContactForm = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch('/send-email', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,8 +32,7 @@ const ContactForm = () => {
           email,
           message,
         }),
-      });
-      
+      })
 
       if (response.ok) {
         setOpen(true)
@@ -96,7 +95,7 @@ const ContactForm = () => {
             <form onSubmit={sendEmail}>
               <TextField
                 fullWidth
-                label="Nombre"
+                label="Name"
                 name="from_name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}

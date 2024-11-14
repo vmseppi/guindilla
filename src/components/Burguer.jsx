@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { SvgIcon, Drawer, List, ListItem, Box, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
+
 
 const Burger = () => {
   
