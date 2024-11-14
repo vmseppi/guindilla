@@ -104,7 +104,7 @@ const ContactForm = () => {
                 variant="outlined"
                 InputProps={{
                   style: {
-                    borderWidth: '1px',
+                    borderWidth: '0',
                     borderColor: 'black',
                     borderStyle: 'solid',
                     borderRadius: '0px',
@@ -128,7 +128,7 @@ const ContactForm = () => {
                 variant="outlined"
                 InputProps={{
                   style: {
-                    borderWidth: '1px',
+                    borderWidth: '0',
                     borderColor: 'black',
                     borderStyle: 'solid',
                     borderRadius: '0px',
@@ -153,7 +153,7 @@ const ContactForm = () => {
                 variant="outlined"
                 InputProps={{
                   style: {
-                    borderWidth: '1px',
+                    borderWidth: '0',
                     borderColor: 'black',
                     borderStyle: 'solid',
                     borderRadius: '0px',

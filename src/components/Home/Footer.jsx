@@ -14,7 +14,6 @@ const Footer = () => {
       sx={{
         padding: '16px',
         backgroundColor: '#E40613',
-       
       }}
     >
       <Box
@@ -23,8 +22,8 @@ const Footer = () => {
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '36px',
-           boxSizing: 'border-box',
-        maxHeight:"291px"
+          boxSizing: 'border-box',
+          maxHeight: '291px',
         }}
       >
         <Box
@@ -176,7 +175,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.linkedin.com/in/la-guindilla-09034b282/"
+                href="https://www.linkedin.com/in/la-guindilla-servicios-digitales-09034b282/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

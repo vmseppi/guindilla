@@ -1,7 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [ ],
+  "short_name": "La Guindilla",
+  "name": "La Guindilla | servicios digitales",
+  "icons": [],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

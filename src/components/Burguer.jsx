@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { SvgIcon, Drawer, List, ListItem, Box, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-
 const Burger = () => {
-  
-
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const navigate = useNavigate()
 
@@ -24,7 +21,7 @@ const Burger = () => {
   }
 
   const redirectToProyect = () => {
-    navigate('/proyect')
+    navigate('/project')
     toggleDrawer()
   }
 
